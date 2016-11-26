@@ -17,6 +17,24 @@ public:
 
     void showInfo();
 
+    ll getHP();
+
+    void incHP();
+
+    ll getDamage();
+
+    void incDamage();
+
+    ll getLevel();
+
+    void incLevel();
+
+    bool isAlive();
+
+    void show();
+
+    short getHPinPercent();
+
 protected:
     char name[Settings::NAME_LENGTH];
     UnitType ut;
@@ -29,6 +47,8 @@ protected:
     int furyIncrement;
     double critChanse;
     int defence;
+private:
+    std::string HPtoString(short hp);
 };
 
 #endif //RPG_HERO_H

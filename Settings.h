@@ -1,6 +1,8 @@
 #ifndef RPG_SETTINGS_H
 #define RPG_SETTINGS_H
 
+#include <string>
+
 typedef long long ll;
 
 enum UnitType {NOOB, DEF, WAR, HEAL};

@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include "Settings.h"
+//#include "Settings.h"
 #include "Heroes/Hero.h"
 
 class Team {
@@ -13,18 +13,29 @@ public:
     ~Team();
     const char *getName() const;
     bool saveTeam();
-
     void setEnemy(Team *pTeam);
-
     void showDetail();
-
     static Team* loadTeam(char *team);
-
-
     void setExp(long long int exp);
     void setStartPoint(long long int startPoint);
     void setName(char*);
     void setHero(Hero* pHero, size_t pos);
+    Team* getEnemy();
+    bool incHP(Hero *u);
+    bool incDamage(Hero* u);
+    bool incLevel(Hero* u);
+    bool isAlive();
+    void show();
+    /*void showShort();
+    void showDetail();
+    UnitK* getUnit(int k);
+    bool fight();
+    bool incStartPoint();
+    long long getStartPoint();
+    void attackEnemy();
+    long long getLevel();
+    std::string getName();
+    //*/
 private:
     long long exp;
     char name[Settings::NAME_LENGTH];

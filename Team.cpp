@@ -139,4 +139,70 @@ void Team::setHero(Hero *pHero, size_t pos) {
     units[pos] = pHero;
 }
 
+Team *Team::getEnemy() {
+    return this->enemy;
+}
 
+bool Team::incHP(Hero *u) {
+    ll x = u->getHP();
+    if (x <= exp) {
+        u->incHP();
+        exp -= x;
+        return true;
+    }
+    return false;
+}
+
+bool Team::incDamage(Hero *u) {
+    ll x = u->getDamage();
+    if (3*x <= exp) {
+        u->incDamage();
+        exp -= 3*x;
+        return true;
+    }
+    return false;
+}
+
+bool Team::incLevel(Hero *u) {
+    ll x = u->getLevel();
+    if (x*10 <= exp) {
+        u->incLevel();
+        exp -= 10*x;
+        return true;
+    }
+    return false;
+}
+
+bool Team::isAlive() {
+    for (int i=0; i<Settings::TEAM; i++) {
+        if (units[i]->isAlive()) return true;
+    }
+    return false;
+}
+
+void Team::show() {
+    cout << endl << name << endl;
+    for (int i=0; i<Settings::TEAM; i++) {
+        units[i]->show();
+        cout << endl;
+    }
+}
+
+std::string HPtoString(short hp) {
+    std::string s="";
+    int i=0;
+    while (hp > 4) {
+        s = s + (char)219;
+        hp -= 4;
+        i++;
+    }
+    switch (hp) {
+        case 3: s = s + (char)178; break;
+        case 2: s = s + (char)177; break;
+        case 1: s = s + (char)176; break;
+        default: break;
+    }
+    i++;
+    for (;i<25;i++) s = s + " ";//(char)249;
+    return s;
+}

@@ -29,6 +29,8 @@ cstring
 -
 iostream
 -
+iomanip
+-
 Hero.h
 D:/Programs/CPP/clion/RPG/Heroes/Hero.h
 
@@ -45,6 +47,8 @@ Hero.h
 D:/Programs/CPP/clion/RPG/Heroes/Hero.h
 
 D:/Programs/CPP/clion/RPG/Settings.h
+string
+-
 
 D:/Programs/CPP/clion/RPG/Team.cpp
 Team.h
@@ -67,8 +71,6 @@ iostream
 -
 string
 -
-Settings.h
-D:/Programs/CPP/clion/RPG/Settings.h
 Heroes/Hero.h
 D:/Programs/CPP/clion/RPG/Heroes/Hero.h
 
