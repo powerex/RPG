@@ -108,3 +108,48 @@ std::string Hero::HPtoString(short hp) {
     for (;i<25;i++) s = s + " ";//(char)249;
     return s;
 }
+
+void Hero::showShort() {
+    switch (ut) {
+        case WAR: cout << (char)23; break;
+        case DEF: cout << (char)15; break;
+        case HEAL: cout << '+'; break;
+        default: cout << '?';
+    }
+    cout << HPtoString(getHPinPercent());
+}
+
+void Hero::setDef(int def) {
+    this->defence+=def;
+    if (defence < 0) defence = 0;
+}
+
+void Hero::increaseFury() {
+    this->fury += furyIncrement;
+}
+
+void Hero::prepareToFight() {
+    defence = 0;
+    currentHP = HP;
+    fury = 0;
+}
+
+double Hero::baseDamage() {
+    double k = (rand()%500)/1000.0 + 0.60000;
+    return k*damage*(1.0 + level/10.0);
+}
+
+void Hero::changeCurrentHP(double d) {
+    if (d < 0 && defence > 0) {
+        d /= 2;
+        defence--;
+    }
+    this->currentHP += d;
+    if (currentHP > HP) currentHP = HP;
+    if (currentHP < 0.0) currentHP = 0.0;
+    fury += 1;
+}
+
+int Hero::getFury() {
+    return this->fury;
+}

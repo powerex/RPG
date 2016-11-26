@@ -35,6 +35,22 @@ public:
 
     short getHPinPercent();
 
+    void showShort();
+
+    void setDef(int def);
+
+    void increaseFury();
+
+    void prepareToFight();
+
+    double baseDamage();
+
+    void changeCurrentHP(double d);
+
+    int getFury();
+
+    virtual void specialHit() = 0;
+
 protected:
     char name[Settings::NAME_LENGTH];
     UnitType ut;

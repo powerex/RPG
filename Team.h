@@ -26,9 +26,8 @@ public:
     bool incLevel(Hero* u);
     bool isAlive();
     void show();
-    /*void showShort();
-    void showDetail();
-    UnitK* getUnit(int k);
+    void showShort();
+    Hero* getUnit(int k);
     bool fight();
     bool incStartPoint();
     long long getStartPoint();
@@ -42,9 +41,9 @@ private:
     Hero* units[Settings::TEAM];
     Team* enemy;
     long long startPoint;
-    //bool isFirst();
-    //void startRound(int n);
-    //void startFight();
+    bool isFirst();
+    void startRound(int n);
+    void startFight();
 };
 
 

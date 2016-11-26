@@ -188,21 +188,137 @@ void Team::show() {
     }
 }
 
-std::string HPtoString(short hp) {
-    std::string s="";
-    int i=0;
-    while (hp > 4) {
-        s = s + (char)219;
-        hp -= 4;
-        i++;
+void Team::showShort() {
+    for (int i=0; i<Settings::TEAM; i++) {
+        units[i]->showShort();
+        cout << "\t\t\t";
+        enemy->getUnit(i)->showShort();
+        cout << endl;
     }
-    switch (hp) {
-        case 3: s = s + (char)178; break;
-        case 2: s = s + (char)177; break;
-        case 1: s = s + (char)176; break;
-        default: break;
+
+}
+
+Hero *Team::getUnit(int k) {
+    return units[k];
+}
+
+bool Team::fight() {
+    startFight();
+    int r = 1;
+    while (isAlive() && enemy->isAlive()) {
+        startRound(r++);
+        /*
+            update();
+            show();
+            enemy->show();
+            cout << "========================================================";
+         */
     }
-    i++;
-    for (;i<25;i++) s = s + " ";//(char)249;
-    return s;
+    if (isAlive()) {
+        exp += enemy->getLevel();
+    }
+    return true;
+}
+
+bool Team::isFirst() {
+    if (enemy != nullptr && enemy->isAlive()) {
+        ll t = startPoint + enemy->getStartPoint();
+        ll x = rand()%t;
+        return x < startPoint;
+    }
+    return true;
+}
+
+void Team::startRound(int n) {
+//    cout << "\nROUND " << n << " starts" << endl;
+    for (int i=0; i<Settings::TEAM; i++) {
+        if (units[i] != nullptr && units[i]->isAlive()) {
+            units[i]->setDef(-1);
+            units[i]->increaseFury();
+        }
+        if (enemy != nullptr) {
+            Hero* e = enemy->getUnit(i);
+            if (e != nullptr && e->isAlive()) {
+                e->setDef(-1);
+                e->increaseFury();
+            }
+        }
+    }
+
+    if (isFirst()) {
+
+        attackEnemy();
+        enemy -> attackEnemy();
+    } else {
+        enemy -> attackEnemy();
+        attackEnemy();
+    }
+
+//    cout << "ROUND " << n << " ends" << endl;
+}
+
+void Team::startFight() {
+    for (int i=0; i<Settings::TEAM; i++) {
+        if (units[i] != nullptr) {
+            units[i]->prepareToFight();
+        }
+        if (enemy != nullptr) {
+            Hero* e = enemy->getUnit(i);
+            if (e != nullptr) {
+                e->prepareToFight();
+            }
+        }
+    }
+}
+
+long long int Team::getLevel() {
+    ll l=0;
+    for (int i=0; i<Settings::TEAM; i++)
+        if (units[i] != nullptr) l += units[i]->getLevel();
+    return l;
+}
+
+bool Team::incStartPoint() {
+    if (exp > startPoint * 1000) {
+        exp -= 1000*(startPoint++);
+        return true;
+    }
+    return false;
+}
+
+long long Team::getStartPoint() {
+    return this->startPoint;
+}
+
+void Team::attackEnemy() {
+    if (isAlive() && enemy != nullptr && enemy->isAlive()) {
+//        cout << "\n Team " << name << " attacks team " << enemy->getName() << endl;
+        //
+        for (int i=0; i<Settings::TEAM; i++) {
+            if (enemy->isAlive() && units[i]->isAlive()) {
+                int e = -1;
+                do {
+                    e = rand()%Settings::TEAM;
+                } while (enemy->getUnit(e) == nullptr || !enemy->getUnit(e)->isAlive());
+
+                double dd = units[i]->baseDamage();
+                enemy->getUnit(e)->changeCurrentHP(-dd);
+
+//                cout << units[i]->getName() << " -> " << enemy->getUnit(e)->getName() << " " << dd << " of damage\n";
+//                showShort();
+                //printHealth();
+//                if (!enemy->getUnit(e)->isAlive()) cout << "                            "
+//                                                        << enemy->getUnit(e)->getName() << " is died\n;";
+                if (units[i]->getFury() > 100) {
+                    units[i]->specialHit();
+//                    showShort();
+                    //printHealth();
+                }
+            }
+        }
+    }
+}
+
+std::string Team::getName() {
+    return this->name;
 }

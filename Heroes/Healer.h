@@ -9,6 +9,7 @@ class Healer: public Hero {
 public:
     Healer(char *name);
     Healer(Team *pTeam);
+    void specialHit();
     ~Healer();
 };
 

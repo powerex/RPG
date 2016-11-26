@@ -8,6 +8,7 @@ class Defender: public Hero {
 public:
     Defender(char *name);
     Defender(Team *pTeam);
+    void specialHit();
     ~Defender();
 };
 

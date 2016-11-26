@@ -8,6 +8,7 @@ class Warrior: public Hero {
 public:
     Warrior(char *name);
     Warrior(Team *pTeam);
+    void specialHit();
     ~Warrior();
 };
 

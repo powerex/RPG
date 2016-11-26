@@ -9,6 +9,8 @@
 D:/Programs/CPP/clion/RPG/Heroes/Defender.cpp
 Defender.h
 D:/Programs/CPP/clion/RPG/Heroes/Defender.h
+../Team.h
+D:/Programs/CPP/clion/RPG/Team.h
 
 D:/Programs/CPP/clion/RPG/Heroes/Defender.h
 Hero.h
@@ -17,6 +19,8 @@ D:/Programs/CPP/clion/RPG/Heroes/Hero.h
 D:/Programs/CPP/clion/RPG/Heroes/Healer.cpp
 Healer.h
 D:/Programs/CPP/clion/RPG/Heroes/Healer.h
+../Team.h
+D:/Programs/CPP/clion/RPG/Team.h
 
 D:/Programs/CPP/clion/RPG/Heroes/Healer.h
 Hero.h
@@ -41,6 +45,8 @@ D:/Programs/CPP/clion/RPG/Settings.h
 D:/Programs/CPP/clion/RPG/Heroes/Warrior.cpp
 Warrior.h
 D:/Programs/CPP/clion/RPG/Heroes/Warrior.h
+../Team.h
+D:/Programs/CPP/clion/RPG/Team.h
 
 D:/Programs/CPP/clion/RPG/Heroes/Warrior.h
 Hero.h

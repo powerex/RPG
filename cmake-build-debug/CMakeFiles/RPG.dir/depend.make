@@ -5,11 +5,13 @@ CMakeFiles/RPG.dir/Heroes/Defender.cpp.obj: ../Heroes/Defender.cpp
 CMakeFiles/RPG.dir/Heroes/Defender.cpp.obj: ../Heroes/Defender.h
 CMakeFiles/RPG.dir/Heroes/Defender.cpp.obj: ../Heroes/Hero.h
 CMakeFiles/RPG.dir/Heroes/Defender.cpp.obj: ../Settings.h
+CMakeFiles/RPG.dir/Heroes/Defender.cpp.obj: ../Team.h
 
 CMakeFiles/RPG.dir/Heroes/Healer.cpp.obj: ../Heroes/Healer.cpp
 CMakeFiles/RPG.dir/Heroes/Healer.cpp.obj: ../Heroes/Healer.h
 CMakeFiles/RPG.dir/Heroes/Healer.cpp.obj: ../Heroes/Hero.h
 CMakeFiles/RPG.dir/Heroes/Healer.cpp.obj: ../Settings.h
+CMakeFiles/RPG.dir/Heroes/Healer.cpp.obj: ../Team.h
 
 CMakeFiles/RPG.dir/Heroes/Hero.cpp.obj: ../Heroes/Hero.cpp
 CMakeFiles/RPG.dir/Heroes/Hero.cpp.obj: ../Heroes/Hero.h
@@ -19,6 +21,7 @@ CMakeFiles/RPG.dir/Heroes/Warrior.cpp.obj: ../Heroes/Hero.h
 CMakeFiles/RPG.dir/Heroes/Warrior.cpp.obj: ../Heroes/Warrior.cpp
 CMakeFiles/RPG.dir/Heroes/Warrior.cpp.obj: ../Heroes/Warrior.h
 CMakeFiles/RPG.dir/Heroes/Warrior.cpp.obj: ../Settings.h
+CMakeFiles/RPG.dir/Heroes/Warrior.cpp.obj: ../Team.h
 
 CMakeFiles/RPG.dir/Team.cpp.obj: ../Heroes/Defender.h
 CMakeFiles/RPG.dir/Team.cpp.obj: ../Heroes/Healer.h
